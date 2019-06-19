@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //==================================RECYCLERVIEW
         val viewlayoutManager = GridLayoutManager(this,3)
 
-       // rv.layoutManager=layoutManager
+
 
 
          val rvadapter = MyAdapter(Supplier.animals)
