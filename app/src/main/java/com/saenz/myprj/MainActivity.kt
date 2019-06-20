@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     fun ifd(adapter_: RecyclerView.Adapter<*>){
         viewlayoutManager = GridLayoutManager(this,3)
 
-        rvadapter = adapter_
+        rvadapter = adapter_ 
 
 
 
@@ -102,6 +102,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
+        ifd(MyAdapter(Supplier.animals))
         when (item.itemId) {
             R.id.nav_home -> {
                 ifd(MyAdapter(Supplier.animals))
