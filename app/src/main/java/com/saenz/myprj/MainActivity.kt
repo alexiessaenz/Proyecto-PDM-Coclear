@@ -23,6 +23,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     //private lateinit var viewAdapter: RecyclerView.Adapter<*>
    // private lateinit var viewManager: RecyclerView.LayoutManager
+    private lateinit  var rvadapter: RecyclerView.Adapter<*>
+    private lateinit var viewlayoutManager: RecyclerView.LayoutManager
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,24 +33,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         //==================================RECYCLERVIEW
-        val viewlayoutManager = GridLayoutManager(this,3)
 
-
-
-
-         val rvadapter = MyAdapter(Supplier.animals)
-        rv.apply {
-            // use this setting to improve performance if you know that changes
-            // in content do not change the layout size of the RecyclerView
-            //setHasFixedSize(true)
-
-            // use a linear layout manager
-            layoutManager=viewlayoutManager
-
-            // specify an viewAdapter (see also next example)
-            adapter=rvadapter
-
-        }
         //==================================
         setSupportActionBar(toolbar)
 
@@ -65,6 +51,28 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+    }
+
+    fun ifd(adapter_: RecyclerView.Adapter<*>){
+        viewlayoutManager = GridLayoutManager(this,3)
+
+        rvadapter = adapter_
+
+
+
+        rv.apply {
+            // use this setting to improve performance if you know that changes
+            // in content do not change the layout size of the RecyclerView
+            //setHasFixedSize(true)
+
+            // use a linear layout manager
+            layoutManager=viewlayoutManager
+
+            // specify an viewAdapter (see also next example)
+            adapter=rvadapter
+
+        }
+
     }
 
     override fun onBackPressed() {
@@ -96,22 +104,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_home -> {
-                // Handle the camera action
+                ifd(MyAdapter(Supplier.animals))
             }
             R.id.nav_gallery -> {
-
+                ifd(MyAdapter(Supplier.personas))
             }
             R.id.nav_slideshow -> {
+                ifd(MyAdapter(Supplier.objetos))
 
             }
             R.id.nav_tools -> {
+                ifd(MyAdapter(Supplier.animals))
+
 
             }
             R.id.nav_share -> {
+                ifd(MyAdapter(Supplier.personas))
 
             }
             R.id.nav_send -> {
-
+                ifd(MyAdapter(Supplier.objetos))
             }
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
