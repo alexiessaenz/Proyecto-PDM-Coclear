@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.list_items.view.*
+import android.content.res.Resources
 
 class MyAdapter(private val myDataset: List<Level_1>) :  RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
@@ -34,6 +35,8 @@ class MyAdapter(private val myDataset: List<Level_1>) :  RecyclerView.Adapter<My
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun setData(sonidos:Level_1?,pos:Int){
             itemView.txvTitle.text = sonidos!!.title
+
+            itemView.imgShare.setImageResource(sonidos.img)
 
         }
     }
