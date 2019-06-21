@@ -26,14 +26,14 @@ class MyAdapter(private val myDataset: List<Level_1>) :  RecyclerView.Adapter<My
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         val sonidos = myDataset[position]
-        holder.setData( sonidos, position)
+        holder.setData( sonidos)
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = myDataset.size
 
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-        fun setData(sonidos:Level_1?,pos:Int){
+        fun setData(sonidos:Level_1?){
             itemView.txvTitle.text = sonidos!!.title
 
             itemView.imgShare.setImageResource(sonidos.img)
